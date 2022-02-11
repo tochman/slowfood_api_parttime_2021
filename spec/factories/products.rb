@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :product do
-    title { "MyString" }
+    title { "chicken wings" }
   end
 end
