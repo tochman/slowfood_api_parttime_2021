@@ -28,7 +28,7 @@ RSpec.describe 'GET /api/products' do
       it 'is expected to return a 422 response status' do
         expect(response).to have_http_status 422
       end
-      binding.pry
+      
       it 'is expected to return a message indicating that there are no products' do
         expect(JSON.parse(response.body)['message']).to eq 'There are no products in the database.'
       end
