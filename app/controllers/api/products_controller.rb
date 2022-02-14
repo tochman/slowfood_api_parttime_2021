@@ -1,11 +1,12 @@
 class Api::ProductsController < ApplicationController
   def index
     products = Product.all
-    render json: { products: products }
-  end
-  def show
-    product = Product.find(params['id'])
-    render json: {product: product}
+    if products.any?
+      render json: { products: products }, status: 200
+    else
+      render json: { message: 'There are no products in the database.' }, status: 422
+    end
+    
   end
 end
 
