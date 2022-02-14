@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :product do
-    title { "chicken wings" }
+    name { "chicken wings" }
+    price { "200 kr" }
   end
 end

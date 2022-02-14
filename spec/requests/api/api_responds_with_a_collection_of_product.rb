@@ -10,12 +10,13 @@ RSpec.describe 'GET /api/products' do
       expect(response).to have_http_status 200
     end
        
-    it 'is expected to return all product' do
+    it 'is expected to return all products' do
       expect(JSON.parse(response.body)['products'].count).to eq 3
     end
-
-    it 'is expected to return products titles' do
-      expect(JSON.parse(response.body)['products'].first['title']).to eq 'chicken wings'
+     binding.pry
+    it 'is expected to return products names' do
+      expect(JSON.parse(response.body)['products'].first['name']).to eq 'chicken wings'
+      binding.pry
     end
   end
 end
