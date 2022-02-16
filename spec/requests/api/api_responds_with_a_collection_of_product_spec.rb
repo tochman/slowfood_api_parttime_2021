@@ -16,6 +16,11 @@ RSpec.describe 'GET /api/products' do
     it 'is expected to return products names' do
       expect(response_json['products'].first['name']).to eq 'chicken wings'
     end
+
+    it 'is expected to return a category' do
+      expect(response_json['products'].first['category']).to eq 'starter'
+    end
+    
   end
   describe 'unsuccessfully' do
     describe 'when there are no products in the database' do
