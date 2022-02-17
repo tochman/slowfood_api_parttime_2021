@@ -6,7 +6,6 @@ class Api::ProductsController < ApplicationController
     else
       render json: { message: 'There are no products in the database.' }, status: 422
     end
-    
   end
 end
 
