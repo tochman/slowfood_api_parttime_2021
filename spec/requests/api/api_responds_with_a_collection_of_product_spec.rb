@@ -12,7 +12,7 @@ RSpec.describe 'GET /api/products' do
     it 'is expected to return all products' do
       expect(response_json['products'].count).to eq 3
     end
-
+     
     it 'is expected to return products names' do
       expect(response_json['products'].first['name']).to eq 'chicken wings'
     end
