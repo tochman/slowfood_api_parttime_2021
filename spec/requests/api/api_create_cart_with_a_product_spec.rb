@@ -3,29 +3,16 @@ RSpec.describe 'POST /api/carts', type: :request do
   subject { response }
   before do
     post '/api/carts',
-    params: {cart:{product_id: product.id}} 
+         params: { cart: { product_id: product.id } }
   end
 
   it { is_expected.to have_http_status :created }
 
-  it 'is expected to create an instance of Cart' do
-    
+  it 'is expected to save cart to database' do
     expect(Cart.all).to_not eq nil
   end
 
-  it 'is expected to associate order with user' do
-    expect(@cart.user).to eq user
-  end
-
-  it 'is expected to create an cart_item' do
-    expect(@cart.items).to_not eq nil
-  end
-
-  it 'is expected to associate the product with cart' do
-    expect(@cart.products.first).to eq product
-  end
-
-  it 'is expected to include cart_id in the response body' do
-    expect(response_json['cart']['id']).to eq @cart.id
+  it 'is expected to return a message that the product was added to the order' do
+    expect(response_json['message']).to eq "#{product.name} has been added to your order"
   end
 end
