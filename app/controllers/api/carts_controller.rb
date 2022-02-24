@@ -1,6 +1,7 @@
 class Api::CartsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :product_not_found
   def create
+    binding.pry
     product = Product.find(params[:cart][:product_id])
     cart = Cart.create
     cart.products << product
